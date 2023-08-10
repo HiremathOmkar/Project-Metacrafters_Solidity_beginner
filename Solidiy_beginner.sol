@@ -18,8 +18,8 @@ pragma solidity 0.8.18;
 contract MyToken {
     // Your contract will have public variables that store the details about your coin 
     // public variables here
-    string public  tokenName="Chroma";
-    string public tokenAbb="Cma";
+    string public  tokenName="Clock";
+    string public tokenAbb="Clk";
     //uint is used as it can never be neg-ve;
     uint public totalSupply=0;
 
