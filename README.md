@@ -1,13 +1,32 @@
-# Project-Metacrafters_Solidity_beginner
-  REQUIREMENTS
-    1. Your contract will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
-    2. Your contract will have a mapping of addresses to balances (address => uint)
-    3. You will have a mint function that takes two parameters: an address and a value. 
-       The function then increases the total supply by that number and increases the balance 
-       of the “sender” address by that amount
-    4. Your contract will have a burn function, which works the opposite of the mint function, as it will destroy tokens. 
-       It will take an address and value just like the mint functions. It will then deduct the value from the total supply 
-       and from the balance of the “sender”.
-    5. Lastly, your burn function should have conditionals to make sure the balance of "sender" is greater than or equal 
-    to the amount that is supposed to be burned.
-*/
+MyToken Solidity Contract
+
+This is a simple Ethereum ERC-20 token contract called MyToken written in Solidity. The contract defines a custom token with basic functionalities like minting and burning tokens, and it also stores information about the token details.
+
+Table of Contents
+About
+Contract Details
+Functions
+Usage
+License
+About
+This contract represents a custom ERC-20 token named Clock (Clk). The contract allows users to mint new tokens and burn existing tokens under certain conditions. The contract's purpose is to showcase the implementation of basic token functionalities.
+
+Contract Details
+The contract has the following public variables:
+
+tokenName: A string representing the name of the token.
+tokenAbb: A string representing the token's abbreviation.
+totalSupply: An unsigned integer representing the total supply of the token.
+It also uses a mapping named balance to associate addresses with their token balances.
+
+Functions
+mint(address _address, uint _value): This function allows minting new tokens. It takes an address and a value as parameters and increases the total supply by the given value. The balance of the specified address is also increased by the given value.
+
+burn(address _address, uint _value): This function allows burning tokens. It takes an address and a value as parameters and decreases the total supply by the given value if the balance of the specified address is greater than or equal to the value. The balance of the address is also reduced by the given value.
+
+Usage
+To use this contract, you need to deploy it on the Ethereum blockchain. After deployment, you can interact with the contract by calling its functions:
+
+Call the mint function to mint new tokens for a specific address.
+Call the burn function to burn existing tokens for a specific address.
+Ensure you provide appropriate parameters and adhere to the conditions mentioned in the contract.
