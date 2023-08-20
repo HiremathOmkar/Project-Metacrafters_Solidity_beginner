@@ -30,12 +30,12 @@ contract MyToken {
 
     
    // mint function is created to take two parameters address and its value
-function mint(address _address,uint _value) private{
+function mint(address _address,uint _value) public{
    totalSupply +=_value;
    balance[_address]+=_value;
 }
-    // burn function act opposite to mint fuction use d for deducting the value/balance
- function burn (address _address,uint _value) private {
+    // burn function act opposite to mint fuction used for deducting the value/balance
+ function burn (address _address,uint _value) public {
 if(balance[_address] >=_value){
    totalSupply -=_value;
    balance[_address]-=_value;
