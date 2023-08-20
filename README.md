@@ -1,49 +1,96 @@
-**#MyToken Solidity Contract**
+# ETH PROOF Beginners Assessment
+It's a solidity program for implementing basic concepts of solidity with the help of tokens and conditional statements.
 
-This is a simple Ethereum ERC-20 token contract called MyToken written in Solidity. The contract defines a custom token with basic functionalities like minting and burning tokens, and it also stores information about the token details.
+## Description
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract has a single function that returns the string. This program serves as a simple and straightforward introduction to Solidity programming, and can be used as a stepping stone for more complex projects in the future.
 
-**#Table of Contents**
+## Getting Started
 
-1)About
+### Executing program
 
-2)Contract Details
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-3)Functions
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., file.sol). Copy and paste the following code into the file:
+```javascript
+pragma solidity 0.8.18;
+contract MyToken {
 
-4)Usage
+    // public variables here
+   string public tokenName = "Clock";
+   string public tokenAbbrv = "Clk";
+   uint public totalSupply = 0;
 
-5)License
+    // mapping variable here
+    mapping(address => uint ) public balance; 
 
-****#About****
+    // mint function
+   function mint (address _address, uint _value) public{
+      totalSupply += _value;
+      balance[_address] += _value;
+   }
 
-This contract represents a custom ERC-20 token named Clock (Clk). The contract allows users to mint new tokens and burn existing tokens under certain conditions. The 
-contract's purpose is to showcase the implementation of basic token functionalities.
+    // burn function
+   function burn(address _address, uint _value) public {
+      if(balances[_address] >= _value){
+         totalSupply -= _value;
+         balance[_address] -= _value;
+      }
+   }
 
-******#Contract Details******
+}
+```
 
-The contract has the following public variables:
 
-tokenName: A string representing the name of the token.
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.4" (or another compatible version), and then click on the "Compile HelloWorld.sol" button.
 
-tokenAbb: A string representing the token's abbreviation.
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "HelloWorld" contract from the dropdown menu, and then click on the "Deploy" button.
 
-totalSupply: An unsigned integer representing the total supply of the token.
+Once the contract is deployed, you can interact with it by calling the sayHello function. Click on the "MyToken" contract in the left-hand sidebar, and then click on the "burn" function to pass the address and give some value. Finally, click on the "transact" button to execute the function and retrieve the tokenAbbreviation, tokenName, and totalSupply.
 
-It also uses a mapping named balance to associate addresses with their token balances.
+ Similarly, do some changes with "mint" and "balance" and observe the changes in the value of "totalSupply".
+ 
+ ### Framework Used
+Solidity 0.8.18
 
-**#Functions**
 
-mint(address _address, uint _value): This function allows minting new tokens. It takes an address and a value as parameters and increases the total supply by the given value. The balance of the specified address is also increased by the given value.
+### MyToken
+It is a contract that will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
+```javascript
+contract MyToken {
 
-burn(address _address, uint _value): This function allows burning tokens. It takes an address and a value as parameters and decreases the total supply by the given value if 
-the balance of the specified address is greater than or equal to the value. The balance of the address is also reduced by the given value.
+    // public variables here
+   string public tokenName = "Clock";
+   string public tokenAbbrv = "Clk";
+   uint public totalSupply = 0; )
+```
 
-**#Usage**
+### mapping
+It is a variable for mapping addresses to balances (address => uint)
+```javascript
+mapping(address => uint ) public balance;
+```
 
-To use this contract, you need to deploy it on the Ethereum blockchain. After deployment, you can interact with the contract by calling its functions:
+### mint
+It's a function that takes two parameters: an address and a value. 
+The function then increases the total supply by that number and improves the balance of the “sender” address by that amount
+```javascript
+function mint (address _address, uint _value) public{
+      totalSupply += _value;
+      balance[_address] += _value;
+}
+```
 
-Call the mint function to mint new tokens for a specific address.
-
-Call the burn function to burn existing tokens for a specific address.
-
-Ensure you provide appropriate parameters and adhere to the conditions mentioned in the contract.
+### burn
+It's a function that works the opposite of the mint function, it will work on condition to make sure the balance of "sender" is greater than or equal 
+       to the amount that is supposed to be burned.
+It will take an address and value just like the mint functions. It will then deduct the value from the total supply and from the balance of the “sender”.
+```javascript
+function burn(address _address, uint _value) public {
+      if(balances[_address] >= _value){
+         totalSupply -= _value;
+         balance[_address] -= _value;
+      }
+   }
+```
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
